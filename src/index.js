@@ -1,9 +1,10 @@
 function decrypt(){
-  let textarea = document.getElementById('encrypted').value.split('');
-  textarea.map((symbol,i) => {
-    if(i < textarea.length-1 && symbol === textarea[i+1]){
-      textarea.splice(i+1, 1);
+  let textarea = document.getElementById('encrypted').value.split('');  
+  for(let i = 0; i < textarea.length-1; i++){
+    if(textarea[i] === textarea[i+1]){
+      textarea.splice(i, 2);
+      i--;
     }
-  });
+  }
   document.getElementById('answer').innerHTML = textarea.join('');
 }
